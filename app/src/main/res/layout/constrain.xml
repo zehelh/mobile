@@ -15,7 +15,7 @@
         android:id="@+id/firstname_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Prénop"
+        android:hint="Prénom"
         android:inputType="text"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="57dp" />
