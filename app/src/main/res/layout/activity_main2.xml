@@ -9,19 +9,20 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/firstnamevalue2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:text="activity2"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        tools:layout_editor_absoluteY="84dp" />
-
+        android:text="firstname"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="92dp" />
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/namevalue2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="84dp" />
+        android:text="name"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="92dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

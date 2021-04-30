@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         binding.submit.setOnClickListener {
             val activity2 = Intent(this, MainActivity2::class.java)
             activity2.putExtra("firstname", binding.firstnameInput.text)
+            activity2.putExtra("name", binding.nameInput.text)
             startActivity(activity2)
         }
 
