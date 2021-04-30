@@ -7,4 +7,21 @@
     tools:context=".MainActivity2"
     tools:viewBindingIgnore="false">
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:text="activity2"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        tools:layout_editor_absoluteY="84dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="84dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
