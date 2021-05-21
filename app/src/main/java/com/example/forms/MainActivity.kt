@@ -18,34 +18,34 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.submit.setOnClickListener {
-
-            var emptyfirstname = binding.firstnameInput.editText?.text.toString().isEmpty();
-            var emptyname = binding.nameInput.editText?.text.toString().isEmpty();
-            binding.firstnameInput.error = null
-            binding.nameInput.error = null
-            var validate = true;
-
-            if(emptyfirstname){
-
-                binding.firstnameInput.error = getString(R.string.error)
-                validate = false
-
-            }
-            if(emptyname){
-
-                binding.nameInput.error = getString(R.string.error)
-                validate = false
-            }
-
-            if(validate){
-                val activity2 = Intent(this, MainActivity2::class.java)
-                activity2.putExtra("firstname", binding.firstnameInput.editText?.text.toString())
-                activity2.putExtra("name", binding.nameInput.editText?.text.toString())
-                startActivity(activity2)
-            }
-
-        }
+//        binding.submit.setOnClickListener {
+//
+//            var emptyfirstname = binding.firstnameInput.editText?.text.toString().isEmpty();
+//            var emptyname = binding.nameInput.editText?.text.toString().isEmpty();
+//            binding.firstnameInput.error = null
+//            binding.nameInput.error = null
+//            var validate = true;
+//
+//            if(emptyfirstname){
+//
+//                binding.firstnameInput.error = getString(R.string.error)
+//                validate = false
+//
+//            }
+//            if(emptyname){
+//
+//                binding.nameInput.error = getString(R.string.error)
+//                validate = false
+//            }
+//
+//            if(validate){
+//                val activity2 = Intent(this, MainActivity2::class.java)
+//                activity2.putExtra("firstname", binding.firstnameInput.editText?.text.toString())
+//                activity2.putExtra("name", binding.nameInput.editText?.text.toString())
+//                startActivity(activity2)
+//            }
+//
+//        }
 
     }
 }
