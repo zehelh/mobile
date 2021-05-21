@@ -3,9 +3,8 @@ package com.example.forms
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
-import android.widget.Toast
 import com.example.forms.databinding.ActivityMainBinding
+import com.google.android.material.textfield.TextInputLayout
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,16 +18,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.submit.setOnClickListener {
-            if (binding.nameInput.textfield.isEmpty() || binding.firstnameInput.text.isEmpty()) {
-                val myToast = Toast.makeText(applicationContext, "Ce champ est vide", Toast.LENGTH_SHORT)
-                myToast.setGravity(Gravity.LEFT, 200, 200)
-                myToast.show()
-            } else {
-                val activity2 = Intent(this, MainActivity2::class.java)
-                activity2.putExtra("firstname", binding.firstnameInput.text)
-                activity2.putExtra("name", binding.nameInput.text)
-                startActivity(activity2)
-            }
+
+
+            TextInputLayout.error = getString(R.string.error)
+
+            TextInputLayout.error = null
+
+            val activity2 = Intent(this, MainActivity2::class.java)
+            activity2.putExtra("firstname", binding.firstnameInput.editText?.text.toString())
+            activity2.putExtra("name", binding.nameInput.editText?.text.toString())
+            startActivity(activity2)
+
 
         }
 
