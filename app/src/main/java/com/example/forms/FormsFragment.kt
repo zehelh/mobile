@@ -5,47 +5,53 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import com.example.forms.databinding.FragmentFormsBinding
 
 class FormsFragment : Fragment() {
 
+    var binding : FragmentFormsBinding? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+//        binding = ResultProfileBinding.inflate(inflater, container, false)
+
+        binding.submit.setOnClickListener {
+
+            val view = binding.root
+
+            var emptyfirstname = binding.nameInput.editText?.text.toString().isEmpty();
+            var emptyname = binding.nameInput.editText?.text.toString().isEmpty();
+            binding.firstnameInput.error = null
+            binding.nameInput.error = null
+            var validate = true;
+
+            if(emptyfirstname){
+
+                binding.firstnameInput.error = getString(R.string.error)
+                validate = false
+
+            }
+            if(emptyname){
+
+                binding.nameInput.error = getString(R.string.error)
+                validate = false
+            }
+
+            if(validate){
+
+                activity.navigateToResult()
+            }
+
+        }
+
         return inflater.inflate(R.layout.fragment_forms, container, false)
     }
-
-    binding.button.setOnClickListener {
-
-        var emptyfirstname = binding.nameInput.editText?.text.toString().isEmpty();
-        var emptyname = binding.nameInput.editText?.text.toString().isEmpty();
-        binding.firstnameInput.error = null
-        binding.nameInput.error = null
-        var validate = true;
-
-        if(emptyfirstname){
-
-            binding.firstnameInput.error = getString(R.string.error)
-            validate = false
-
-        }
-        if(emptyname){
-
-            binding.nameInput.error = getString(R.string.error)
-            validate = false
-        }
-
-        if(validate){
-            val activity2 = Intent(this, MainActivity2::class.java)
-            activity2.putExtra("firstname", binding.firstnameInput.editText?.text.toString())
-            activity2.putExtra("name", binding.nameInput.editText?.text.toString())
-            startActivity(activity2)
-        }
-
-    }
-
 //    companion object {
 //
 //        @JvmStatic
@@ -57,4 +63,15 @@ class FormsFragment : Fragment() {
 //                }
 //            }
 //    }
+}
+
+private fun FragmentActivity?.navigateToResult() {
+
+    this?.supportFragmentManager?.commit {
+        add<FormsFragment>(R.id.fragmentContainerView)
+        setReorderingAllowed(true)
+        addToBackStack("name") // name can be null
+        addToBackStack("firstname") // firstname can be null
+
+    }
 }
