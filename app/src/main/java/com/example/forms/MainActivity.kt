@@ -19,15 +19,24 @@ class MainActivity : AppCompatActivity() {
 
         binding.submit.setOnClickListener {
 
+            if( binding.firstnameInput == null){
 
-            TextInputLayout.error = getString(R.string.error)
+                binding.firstnameInput.error = getString(R.string.error)
 
-            TextInputLayout.error = null
+            } else if( binding.nameInput == null){
 
-            val activity2 = Intent(this, MainActivity2::class.java)
-            activity2.putExtra("firstname", binding.firstnameInput.editText?.text.toString())
-            activity2.putExtra("name", binding.nameInput.editText?.text.toString())
-            startActivity(activity2)
+                binding.nameInput.error = getString(R.string.error)
+            } else {
+                val activity2 = Intent(this, MainActivity2::class.java)
+                activity2.putExtra("firstname", binding.firstnameInput.editText?.text.toString())
+                activity2.putExtra("name", binding.nameInput.editText?.text.toString())
+                startActivity(activity2)
+            }
+
+
+            // TextInputLayout.error = null
+
+
 
 
         }

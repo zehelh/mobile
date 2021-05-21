@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">forms</string>
+    <string name="error">Champ non valide</string>
 </resources>
