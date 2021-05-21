@@ -17,6 +17,35 @@ class FormsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_forms, container, false)
     }
 
+    binding.button.setOnClickListener {
+
+        var emptyfirstname = binding.nameInput.editText?.text.toString().isEmpty();
+        var emptyname = binding.nameInput.editText?.text.toString().isEmpty();
+        binding.firstnameInput.error = null
+        binding.nameInput.error = null
+        var validate = true;
+
+        if(emptyfirstname){
+
+            binding.firstnameInput.error = getString(R.string.error)
+            validate = false
+
+        }
+        if(emptyname){
+
+            binding.nameInput.error = getString(R.string.error)
+            validate = false
+        }
+
+        if(validate){
+            val activity2 = Intent(this, MainActivity2::class.java)
+            activity2.putExtra("firstname", binding.firstnameInput.editText?.text.toString())
+            activity2.putExtra("name", binding.nameInput.editText?.text.toString())
+            startActivity(activity2)
+        }
+
+    }
+
 //    companion object {
 //
 //        @JvmStatic
